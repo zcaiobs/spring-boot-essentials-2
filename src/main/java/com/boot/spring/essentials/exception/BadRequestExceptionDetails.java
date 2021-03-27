@@ -2,15 +2,13 @@ package com.boot.spring.essentials.exception;
 
 import lombok.Builder;
 import lombok.Data;
+import lombok.Getter;
+import lombok.experimental.SuperBuilder;
 
 import java.time.LocalDateTime;
 
-@Data
-@Builder
-public class BadRequestExceptionDetails {
-    private String title;
-    private String details;
-    private int status;
-    private String developerMessage;
-    private LocalDateTime timestamp;
+@Getter
+@SuperBuilder
+public class BadRequestExceptionDetails extends ExceptionDetails{
+
 }

@@ -1,0 +1,27 @@
+services:
+
+  adminer:
+    image: adminer
+    restart: always
+    ports:
+      - 9001:8080
+    networks:
+      - mysql-compose-network
+
+  mysql:
+    image: mysql
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - essentials_data:/var/lib/mysql
+    networks:
+      - mysql-compose-network
+
+networks:
+  mysql-compose-network:
+    driver: bridge
+
+volumes:
+  essentials_data:

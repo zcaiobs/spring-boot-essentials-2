@@ -7,6 +7,8 @@ import com.boot.spring.essentials.request.AnimeRequestPut;
 import com.boot.spring.essentials.domain.Anime;
 import com.boot.spring.essentials.repository.AnimeRepository;
 import lombok.AllArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
@@ -23,8 +25,8 @@ public class AnimeService {
         return animeRepository.findByName(name);
     }
 
-    public List<Anime> listAll() {
-        return animeRepository.findAll();
+    public Page<Anime> listAll(Pageable pageable) {
+        return animeRepository.findAll(pageable);
     }
 
     public Anime findById(long id) {

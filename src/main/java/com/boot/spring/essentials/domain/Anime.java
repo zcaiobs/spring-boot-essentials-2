@@ -21,4 +21,9 @@ public class Anime {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
+
+    public Anime(String name) {
+        this.name = name;
+    }
+
 }

@@ -33,7 +33,7 @@ public class AnimeService {
     }
 
     public Anime save(AnimeRequestPost anime) {
-        return animeRepository.save(AnimeMapper.INSTANCE.toAnime(anime));
+        return animeRepository.save(AnimeMapper.toAnime(anime));
     }
 
     public void deleteById(long id) {
@@ -42,7 +42,7 @@ public class AnimeService {
 
     public Anime replace(AnimeRequestPut anime) {
         if (animeRepository.existsById(anime.getId())) {
-            return animeRepository.save(AnimeMapper.INSTANCE.toAnime(anime));
+            return animeRepository.save(AnimeMapper.toAnime(anime));
         } else {
             throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Anime not found");
         }

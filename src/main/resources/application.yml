@@ -2,6 +2,13 @@ server:
   error:
     include-stacktrace: always
 
+logging:
+  level:
+    org:
+      hibernate:
+        SQL: DEBUG
+
+
 spring:
   datasource:
     username: root
@@ -13,7 +20,6 @@ spring:
       ddl-auto: update
 
     database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
-    show-sql: true
     generate-ddl: true
 
 

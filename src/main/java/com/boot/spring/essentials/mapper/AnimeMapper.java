@@ -9,17 +9,17 @@ public abstract class AnimeMapper {
         if (animeRequestPost == null) {
             return null;
         }
-        return new Anime(
-                animeRequestPost.getName()
-        );
+        return Anime.builder()
+                .name(animeRequestPost.getName())
+                .build();
     }
     public static Anime toAnime(AnimeRequestPut animeRequestPut) {
         if (animeRequestPut == null) {
             return null;
         }
-        return new Anime(
-                animeRequestPut.getId(),
-                animeRequestPut.getName()
-        );
+        return Anime.builder()
+                .id(animeRequestPut.getId())
+                .name(animeRequestPut.getName())
+                .build();
     }
 }

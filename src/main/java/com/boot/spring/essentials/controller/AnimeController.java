@@ -28,7 +28,6 @@ public class AnimeController {
 
     @GetMapping
     public ResponseEntity<Page<Anime>> listAll(Pageable pageable) {
-        log.info(dateUtil.formatLocaleDateTimeToDatabaseStyle(LocalDateTime.now()));
         return ResponseEntity.ok(animeService.listAll(pageable));
     }
 
@@ -61,7 +60,7 @@ public class AnimeController {
 
     @PutMapping
     public ResponseEntity<Anime> replace(@RequestBody AnimeRequestPut animeRequestPut) {
-        return new ResponseEntity<>(animeService.replace(animeRequestPut), HttpStatus.OK);
+        return new ResponseEntity<>(animeService.replace(animeRequestPut), HttpStatus.NO_CONTENT);
     }
 
 }

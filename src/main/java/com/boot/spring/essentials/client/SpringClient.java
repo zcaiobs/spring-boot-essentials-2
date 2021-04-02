@@ -12,7 +12,7 @@ import java.util.List;
 public class SpringClient {
     public static void main(String[] args) {
         ResponseEntity<Anime> entity1 = new RestTemplate().getForEntity("http://localhost:8080/animes/{id}",
-                Anime.class, 5);
+                Anime.class, 1);
         log.info(entity1);
 
         ResponseEntity<Anime> entity2 = new RestTemplate().postForEntity("http://localhost:8080/animes",
